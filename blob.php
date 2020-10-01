@@ -4,13 +4,28 @@
         $fileName = $_FILES["fileToUpload"]["name"];
         $fileType = $_FILES["fileToUpload"]["type"];
         $fileData = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
-         $sql = "INSERT INTO `cart`(`mime`, `item`, `name`) VALUES (:mime,:item,:name)";
+        $productName = $_REQUEST["name"];
+        $description = $_REQUEST["discription"];
+        $longdescription = $_REQUEST["longdiscription"];
+        $price = $_REQUEST["price"];
+        $peviousPrice = $_REQUEST["previous_price"];
+
+        $sql = "INSERT INTO `products`(`name`, `filename`, `mime`, `item`, `price`, `previous_price`, `description`, `longdescription`) 
+                            VALUES (:name, :filename, :mime, :item, :price, :previous_price, :description, :longdescription)";
         if($stmt=$connection->prepare($sql)){
             $stmt->bindParam(":mime",$fileType);
             $stmt->bindParam(":item",$fileData);
-            $stmt->bindParam(":name",$fileName);
+            $stmt->bindParam(":filename",$fileName);
+            $stmt->bindParam(":name", $productName);
+            $stmt->bindParam(":price", $price);
+            $stmt->bindParam(":previous_price", $peviousPrice);
+            $stmt->bindParam(":description", $description);
+            $stmt->bindParam(":longdescription", $longdescription);
             if($stmt->execute()){
                 header("location:blob.php?msg=1");
+            }
+            else {
+                echo "error";
             }
         }
 
@@ -38,8 +53,19 @@
 
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload">
+    <label>product name:</label>
+    <input type="text" name="name"><br>
+    <label>product description:</label>
+    <input type="text" name="discription"><br>
+    <label>long description:</label>
+    <input type="text" name="longdiscription"><br>
+    <label>product price:</label>
+    <input type="text" name="price"><br>
+    <label>previous price:</label>
+    <input type="text" name="previous_price"><br>
+    <label>Select image to upload:</label>
+    <input type="file" name="fileToUpload"><br>
+
     <input type="submit" value="Upload Image" name="fileSubmitBtn">
     </form>
 

@@ -12,5 +12,33 @@
         <li><a href="signup.php">Sign Up</a></li>
         <li><a href="blob.php">Upload image</a></li>
     </ul>
+
+    <div class="product">
+
+        <?php 
+        
+            include 'database.php';
+
+            $query = "SELECT * FROM products";
+            $statement = $connection->prepare($query);
+            $statement->execute();
+            $rows = $statement->rowCount();
+
+            for($i=1; $i<=$rows; $i++) {
+                $row = $statement->fetch();
+                echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."'>";
+            }
+
+
+
+        
+        ?>
+    
+
+    
+
+    </div>
+
+
 </body>
 </html>

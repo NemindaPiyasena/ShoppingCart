@@ -10,3 +10,14 @@ ul li {
 ul li a {
     text-decoration: none;
 }
+
+
+.product {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 75%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: auto;
+
+}
