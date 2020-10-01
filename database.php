@@ -1,16 +1,16 @@
 <?php
 
-    $username = "root";
-    $password = "";
-    $server = "mysql:host=localhost;dbname=shoppingcart";
+    try{
 
-    try {
-        $connection = new PDO($server, $username, $password);
-        echo 'Database connection successful';
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $connection = new PDO("mysql:host=$servername;dbname=shoppingcart", $username, $password);
     } catch(PDOException $e) {
-        $errorMessage = $e->getMessage();
-        include('database_error.php');
-        exit();
+        echo $e;
     }
+    
+
+
 
 ?>
