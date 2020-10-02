@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="did login part and blob uploading">
-      <change afterPath="$PROJECT_DIR$/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
+    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="did login part and blob uploading for euroflora">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blob.php" beforeDir="false" afterPath="$PROJECT_DIR$/blob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1601446557174</updated>
       <workItem from="1601446558282" duration="4153000" />
-      <workItem from="1601550980926" duration="1554000" />
+      <workItem from="1601550980926" duration="1612000" />
+      <workItem from="1601611624007" duration="683000" />
     </task>
     <task id="LOCAL-00001" summary="added database basic configuration">
       <created>1601454620433</created>
@@ -101,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601551160336</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="did login part and blob uploading for euroflora">
+      <created>1601568805458</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601568805458</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +125,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added database basic configuration" />
     <MESSAGE value="did login part and blob uploading" />
-    <option name="LAST_COMMIT_MESSAGE" value="did login part and blob uploading" />
+    <MESSAGE value="did login part and blob uploading for euroflora" />
+    <option name="LAST_COMMIT_MESSAGE" value="did login part and blob uploading for euroflora" />
   </component>
   <component name="WindowStateProjectService">
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1601446581330">
@@ -133,9 +137,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1601446729819" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601551164401">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601568811359">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601551164401" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601568811359" />
   </component>
 </project>

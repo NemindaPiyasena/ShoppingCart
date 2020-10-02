@@ -13,11 +13,36 @@ ul li a {
 
 
 .product {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
     width: 75%;
     padding-left: 2%;
     padding-right: 2%;
     margin: auto;
 
+}
+
+#tdd {
+    text-align: center;
+}
+
+.pimg{
+    width: 80%;
+    height: 200px;
+
+}
+
+.card-price {
+    width: fit-content;
+	height: 38px;
+	background-color:rgb(145, 68, 68);
+	border-radius: 3px 4px 4px 3px;
+	border-left: 1px solid rgb(145, 68, 68);
+
+	/* This makes room for the triangle */
+	margin-left: 19px;
+	
+    position: relative;
+    float: right;
+	color: white;
+	line-height: 38px;
+	padding: 0 10px 0 10px;
 }

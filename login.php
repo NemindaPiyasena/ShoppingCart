@@ -25,11 +25,14 @@
                 $statement->bindParam(":password", $password);
                 $statement->execute();
                 if($statement->rowCount()==1) {
-                    $result = $statement->fetch();
-                    $_SESSION["username"] = $result["username"];
-                    $_SESSION["name"] = $result["displayname"];
+                    $row = $statement->fetch();
+                    $_SESSION["username"] = $row["username"];
+                    $_SESSION["name"] = $row["displayname"];
+                    echo $row["user_id"];
+                    $_SESSION['user_id'] = $row["user_id"];
+                    echo $_SESSION["user_id"];
                     $_SESSION["logged"] = true;
-                    header("location:profile.php");
+                    //header("location:profile.php");
                 }else {
 
                     
