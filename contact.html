@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="contact.css" type="text/css">
+</head>
+<body>
+
+    <hr \>
+    <div id="logoImage">
+        <img src="images/euroflora-logo.png" alt="euroflora-logo">
+    </div>
+    <p>
+        We are Online! Welcome to Instant Answer Messaging. 
+        During the opening hours of the shop, your request will be read and managed in real time. 
+        If you have already placed an order you can call the phone number dedicated to the customers, you received in the summary email.
+    </p>
+
+    <form>
+        <div class="formElements">
+            <label for="name" class="leftF">Name*</label>
+            <input type="text" id="name" name="name" class="rightF">
+        </div>
+
+        <div class="formElements">
+            <label for="mail" class="leftF">E-Mail*</label>
+            <input type="email" id="mail" name="mail" class="rightF">
+        </div>
+
+        <div class="formElements">
+            <label for="phone" class="leftF">Phone*</label>
+            <div id="numberSelect" class="rightF">
+                <select id="countries" name="country" style="width: 50%;margin-right: 1%;">
+                    <option value="Sri Lanka">Sri Lanka +94</option>
+                    <option value="UK">UK</option>
+                    <option value="US">US</option>
+                    <option value="Rusia">Rusia</option>
+                </select>
+                <input type="tel" id="phone" name="phone" style="width: 50%;">
+            </div>
+            
+        </div>
+
+        <div class="formElements">
+            <label for="code" class="leftF">Order Code</label>
+            <input type="text" id="code" name="code" placeholder="Enter the code received by email if available" class="rightF">
+        </div>
+
+        <div class="formElements">
+            <label for="message" class="leftF">Message*</label>
+            <textarea name="message" class="rightF" id="message" cols="60" rows="10" placeholder="Describe your request accurately to receive better info."></textarea>
+        </div>
+
+        <div class="formElements">
+            <label for="attachment" class="leftF">Attachment*</label>
+            <div id="nativeFileChange">
+                <span>Choose File</span>
+                <input type="file" id="nativeFile">
+            </div>
+        </div>
+
+        <div id="submitBtn"><input type="submit" value="Start" style="background-color: rgb(164, 233, 233);"></div>
+
+    </form>
+    
+</body>
+</html>

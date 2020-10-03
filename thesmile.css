@@ -1,0 +1,83 @@
+body {
+    color: black;
+}
+
+#headerSec{
+    margin-bottom: 0.5%;
+}
+#mainBody {
+    display: flex;
+}
+.common{
+}
+#left {
+    padding: 2%;
+    width: 30%;
+}
+
+#left img {
+    width: 90%;
+}
+
+#right {
+    padding: 1%;
+    width: 70%;
+}
+
+#right p{
+    margin: 0%;
+    padding: 0%;
+}
+
+#right form {
+    padding-left: 3%;
+    padding-right: 10%;
+    margin: auto;
+}
+
+#left form div {
+    width: 100%;
+}
+
+
+.formElements {
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.leftF {
+    width: 30%;
+    padding-right: 2%;
+    text-align: right;
+}
+
+.hintsR {
+    color:  #777777;
+    font-size: smaller;
+}
+
+#submitBtn {
+    position: relative;
+    text-align: right;
+}
+
+.borders {
+    position: relative;
+    border: 1px ridge #777777;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.borders:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 2px;
+    left: 1px;
+    right: 1px;
+    bottom: 2px;
+    border: 1px ridge #777777;
+}

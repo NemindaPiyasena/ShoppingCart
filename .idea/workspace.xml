@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="did login part and blob uploading for euroflora">
+    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="merged with feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,7 @@
       <updated>1601446557174</updated>
       <workItem from="1601446558282" duration="4153000" />
       <workItem from="1601550980926" duration="1612000" />
-      <workItem from="1601611624007" duration="683000" />
+      <workItem from="1601611624007" duration="1649000" />
     </task>
     <task id="LOCAL-00001" summary="added database basic configuration">
       <created>1601454620433</created>
@@ -104,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601568805458</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added cart functionality">
+      <created>1601616699306</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601616699306</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +133,8 @@
     <MESSAGE value="added database basic configuration" />
     <MESSAGE value="did login part and blob uploading" />
     <MESSAGE value="did login part and blob uploading for euroflora" />
-    <option name="LAST_COMMIT_MESSAGE" value="did login part and blob uploading for euroflora" />
+    <MESSAGE value="Added cart functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cart functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1601446581330">
@@ -137,9 +145,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1601446729819" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601568811359">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601616864117">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601568811359" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601616864117" />
   </component>
 </project>

@@ -1,0 +1,52 @@
+body {
+    margin-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#logoImage {
+    text-align: center;
+}
+
+form {
+    width: 80%;
+}
+
+.formElements {
+    width: 100%;
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.leftF {
+    width: 30%;
+    padding-right: 2%;
+    text-align: right;
+}
+
+.rightF {
+    width: 70%;
+}
+
+#numberSelect {
+    display: flex;
+}
+
+#submitBtn {
+    text-align: center;
+}
+
+#nativeFileChange {
+    background-color: rgb(164, 233, 233);
+    position: relative;
+}
+
+#nativeFile {
+    opacity: 0;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    right: 0%;
+    left: 0%;
+}
