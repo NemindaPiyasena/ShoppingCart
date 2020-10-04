@@ -13,7 +13,7 @@
 
         $sql = "INSERT INTO `products`(`name`, `filename`, `mime`, `item`, `price`, `previous_price`, `description`, `longdescription`) 
                             VALUES (:name, :filename, :mime, :item, :price, :previous_price, :description, :longdescription)";
-        if($stmt=$connection->prepare($sql)){
+        if($stmt = $connection->prepare($sql)){
             $stmt->bindParam(":mime",$fileType);
             $stmt->bindParam(":item",$fileData);
             $stmt->bindParam(":filename",$fileName);
