@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="Corrected some parts in PDO">
-      <change beforePath="$PROJECT_DIR$/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/site.php" afterDir="false" />
+    <list default="true" id="82b696b9-5f74-4723-8b0f-b42b88f165aa" name="Default Changelist" comment="Did styling files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,8 @@
       <workItem from="1601550980926" duration="1612000" />
       <workItem from="1601611624007" duration="1649000" />
       <workItem from="1601707100287" duration="242000" />
-      <workItem from="1601832347566" duration="345000" />
+      <workItem from="1601832347566" duration="427000" />
+      <workItem from="1601871844310" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="added database basic configuration">
       <created>1601454620433</created>
@@ -127,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601832581671</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a label">
+      <created>1601832703661</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601832703661</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Did styling files">
+      <created>1601832755021</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601832755021</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +167,9 @@
     <MESSAGE value="Added cart functionality" />
     <MESSAGE value="Added css with html files" />
     <MESSAGE value="Corrected some parts in PDO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected some parts in PDO" />
+    <MESSAGE value="Added a label" />
+    <MESSAGE value="Did styling files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Did styling files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="604" y="356" key="NewPhpFileDialog" timestamp="1601446581330">
@@ -163,9 +180,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1601446729819" />
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601832590781">
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1601832758085">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601832590781" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1601832758085" />
   </component>
 </project>
