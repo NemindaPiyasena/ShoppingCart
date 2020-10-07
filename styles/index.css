@@ -13,7 +13,7 @@
     text-decoration: none;
 }
 .navBar li{
-    float: left;
+    float: right;
     padding: 15px 15px;
 }
 .navBar .icon{
@@ -21,7 +21,8 @@
 }
 
 @media screen and (max-width:600px){
-    .navBar li:not(:first-child){display: none;}
+    .navBar li:not(:last-child){display: none;}
+    .navBar li:last-child{float: left;}
     .navBar li.icon{
         display: block;
         float: right;
