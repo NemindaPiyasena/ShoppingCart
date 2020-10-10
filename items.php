@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The smile</title>
-    <link rel="stylesheet" href="main.css" type="text/css">
-    <link rel="stylesheet" href="thesmile.css" type="text/css">
+    <link rel="stylesheet" href="main.css?v = <?php echo time(); ?>" type="text/css">
+    <link rel="stylesheet" href="thesmile.css?v = <?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -77,25 +77,25 @@
                 <p>Price(delivery included)</p>
                 <hr \>
                 <form>
-                    <div class="borders" id="option1" onclick="changeColor(id);">
-                        <input type="radio" name="time" value="Standard" checked="true">
-                        <label for="option1">Standard 78.90 € </label>
+                    <div class="borders" id="option1">
+                        <input type="radio" name="time" value=<?php echo $row['price']+40; ?> checked="true">
+                        <label for="option1">Standard <?php echo $row['price']; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
-                    <div class="borders"  id="option2" onclick="changeColor(id);">
-                        <input type="radio" name="time" value="Delux">
-                        <label for="option2">Delux 98.90 € </label>
+                    <div class="borders"  id="option2">
+                        <input type="radio" name="time" value=<?php echo $row['price']+20; ?> >
+                        <label for="option2">Delux <?php echo $row['price']+20; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
-                    <div class="borders" id="option3" onclick="changeColor(id);">
-                        <input type="radio" id="option3" name="time" value="Premium">
-                        <label for="option3">Premium 118.90 € </label>
+                    <div class="borders" id="option3">
+                        <input type="radio" id="option3" name="time" value=<?php echo $row['price']+40; ?> >
+                        <label for="option3">Premium <?php echo $row['price']+40; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
                 </form>
 
-                <p style="background-color: rgb(145, 68, 68);padding-top: 1%;width: 60%;";">Total 78.90 €(delivery included)</p>
-                <p>The Smile 78.90 €</p>
+                <p id="total">Total 78.90 €(delivery included)</p>
+                <p><?php echo $row['name']." ".$row['price']; ?> €</p>
                 
             </div>
 
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     
-                    <div id="submitBtn"><input type="submit" value="Continue" style="background-color: rgb(145, 68, 68);"></div>
+                    <div id="submitBtn"><input type="submit" value="Continue" style="background-color: rgb(145, 68, 68);" id="sButton"></div>
 
                 </form>
                 

@@ -59,7 +59,14 @@ body {
 
 #submitBtn {
     position: relative;
-    text-align: right;
+    left: 50%;
+    margin-top: 2%;
+}
+
+#sButton {
+    border-radius: 7px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
 }
 
 .borders {
@@ -69,6 +76,7 @@ body {
     padding-bottom: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
+    border-radius: 8px;
 }
 
 .borders:before {
@@ -80,4 +88,14 @@ body {
     right: 1px;
     bottom: 2px;
     border: 1px ridge #777777;
+    border-radius: 8px;
+}
+
+#total {
+    background-color: rgb(145, 68, 68);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 7px;
+    text-align: center;
+    width: 60%;
 }

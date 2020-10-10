@@ -1,4 +1,4 @@
-body {
+body, s {
     margin: 0%;
     color: rgb(192, 92, 92);
 }
@@ -12,8 +12,11 @@ body {
     display: inline;
 }
 
-#headerSec nav ul a{
+a {
     text-decoration: none;
+}
+
+#headerSec nav ul a{
     padding: 0% 1% 0% 1%;
     color: rgb(192, 92, 92);
 }
@@ -142,9 +145,8 @@ body {
 
 .card {
     position: relative;
-    padding-left: 2%;
-    padding-right: 2%;
-    box-shadow: 0px 5px 5px #777777;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
 }
 #firstChild table {
     margin: auto;
@@ -155,6 +157,10 @@ body {
 .cardHeader {
     font-family: 'Dancing Script', cursive;
     color: black;
+}
+.productImage {
+    width: 250px;
+    height: 300px;
 }
 
 

@@ -109,7 +109,7 @@
                         echo "<tr>";
                         for($j=0;$j<4;$j++) {
                             $row = $statement->fetch();
-                            echo "<td class='card'><a href='items.php'>";
+                            echo "<td class='card'><a href='items.php?productId=".$row['product_id']."' >";
                             echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."' class='productImage'>";
                             echo "<h3 class='cardHeader'>".$row['name']."</h3>";
                             echo "<p class='cardDiscriptor'>".$row['description']."</p>";
