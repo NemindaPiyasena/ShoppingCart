@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="main.css?v = <?php echo time(); ?>" type="text/css">
+=======
+    <link href="main.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="styles/index.css?v=<?php echo time(); ?>">
+>>>>>>> fd63d7aa205cc988958b7a1e2be6884243290d1d
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+<<<<<<< HEAD
     <section id="headerSec">
         <img src="images/logo-small.png" alt="euroflora logo">
 
@@ -94,6 +100,19 @@
                     Choose your Bouquet from 68 € delivery included. Payments accepted: Credit Card and Paypal.
                 </p>
             </section>
+=======
+    <div class="navBar" id="navBarId">
+        <ul>
+            <li class="icon"><a href="javascript:void();" onclick="navBarFunction();"><i class="fa fa-bars"></i></a></li>
+            
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Sign Up</a></li>
+            <li><a href="blob.php">Upload image</a></li>
+            <li><a href="index.php">Home</a></li>
+            
+        </ul>
+    </div>
+>>>>>>> fd63d7aa205cc988958b7a1e2be6884243290d1d
 
     <table class="product">
 
