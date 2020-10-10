@@ -94,51 +94,41 @@
                     Choose your Bouquet from 68 € delivery included. Payments accepted: Credit Card and Paypal.
                 </p>
             </section>
-            
-    <table class="product">
 
-        <?php 
-        
-            include 'database.php';
-            $query = "SELECT * FROM products";
-            $statement = $connection->prepare($query);
-            $statement->execute();
-            $rows = $statement->rowCount();
+            <table class="product">
+                <?php
+                    include 'database.php';
+                    $query = "SELECT * FROM products";
+                    $statement = $connection->prepare($query);
+                    $statement->execute();
+                    $rows = $statement->rowCount();
 
-            $tableRows = ceil($rows / 4);
+                    $tableRows = ceil($rows / 4);
 
-            for($i=0;$i<$tableRows;$i++) {
-                echo "<tr>";
-                for($j=0;$j<4;$j++) {
-                    $row = $statement->fetch();
-                    echo "<td id='tdd'>";
-                    echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."' class='pimg'>";
-                    echo "<h3>".$row['name']."</h3>";
-                    echo "<p>".$row['description']."</p>";
-                    echo "<p class='card-price'> From".$row['price']." € </p>";
-                    echo "<i class='fa fa-info-circle' style='font-size:36px;color:rgb(145, 68, 68);'></i>  ";
-                    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
-                        echo "<a href='addToCart.php?product_id=".$row['product_id']."' method='post'>" . "Add to Cart" . "</a>";
+                    for($i=0;$i<$tableRows;$i++) {
+                        echo "<tr>";
+                        for($j=0;$j<4;$j++) {
+                            $row = $statement->fetch();
+                            echo "<td class='card'><a href='items.php'>";
+                            echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."' class='productImage'>";
+                            echo "<h3 class='cardHeader'>".$row['name']."</h3>";
+                            echo "<p class='cardDiscriptor'>".$row['description']."</p>";
+                            if($row['price'] != $row['previous_price']) {
+                                echo "<p class='previousPrice'><s>".$row['previous_price']." €</s></p>";
+                            }
+                            echo "<p class='card-price'> From".$row['price']." € </p>";
+                            echo "<i class='fa fa-info-circle' style='font-size:36px;color:rgb(145, 68, 68);'></i>";
+                            /*if(isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+                                echo "<a href='addToCart.php?product_id=".$row['product_id']."' method='post'>" . "Add to Cart" . "</a>";
+                            }*/
+                            echo "</a></td>";
+                        }
+                        echo "</tr>";
                     }
-                    echo "</td>";
-                }
+                ?>
+            </table>
 
-                echo "</tr>";
-            }
-
-
-
-        
-        ?>
-    
-
-    
-
-    </table>
-
-
-    <script src="scripts/index.js"></script>
-
-
+        </article>
+    </article>
 </body>
 </html>
