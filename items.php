@@ -94,7 +94,8 @@
                     </div>
                 </form>
 
-                <input type="text" readonly value="Total 78.90 € (delivery included)" id="total" >
+                <input type="text" readonly value="Total 78.90 €(delivery included)" id="total" >
+                <p><?php echo $row['name']." ".$row['price']; ?> €</p>
                 
             </div>
 
@@ -139,8 +140,8 @@
                             <p style="padding-top: 6%;color: rgb(192, 92, 92);font-size: smaller;">Out of ideas? Choose a <br \>message!</p>
                         </div>
                         <div>
-                            <textarea name="message" id="message" cols="60" rows="10"></textarea>
-                            <p class="hintsR">250 characters remaining</p>
+                            <textarea name="message" id="message" cols="60" rows="10" onkeyup="setRemaining();" onkeydown="setRemaining();" maxlength="600"></textarea>
+                            <p class="hintsR"><input type="text" id="remain" class="hintsR" value="600" readonly /> characters remaining</p>
                         </div>
                     </div>
                     <div class="formElements">

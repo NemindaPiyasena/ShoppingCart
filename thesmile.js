@@ -13,3 +13,14 @@ function setTotal(id) {
     document.getElementById('total').value = "Total " + total + " € (delivery included)";
 }
 
+function setRemaining() {
+    textbox = document.getElementById('remain');
+    textarea = document.getElementById('message');
+    remain = 600 - textarea.value.length;
+    if(remain < 0) {
+        return;
+    }
+    textbox.value = remain;
+    textbox.style.width = textbox.value.length * 7 + 'px';
+}
+

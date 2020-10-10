@@ -57,6 +57,12 @@ body {
     font-size: smaller;
 }
 
+#remain {
+    padding: 0%;
+    border: 0px none;
+    width: 20px;
+}
+
 #submitBtn {
     position: relative;
     left: 50%;
