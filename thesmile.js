@@ -1,5 +1,6 @@
 let delivery = parseInt(document.getElementById('working').value);
 let price = parseInt(document.getElementById('standard').value);
+
 function setDelivery(id) {
     delivery = parseInt(document.getElementById(id).value);
     total = delivery + price;
@@ -9,8 +10,11 @@ function setDelivery(id) {
 
 function setTotal(id) {
     price = parseInt(document.getElementById(id).value);
+    current = document.getElementById('currentItem');
     total = delivery + price;
     document.getElementById('total').value = "Total " + total + " € (delivery included)";
+    current.value = price;
+    current.style.width = current.value.length * 8 + 'px';
 }
 
 function setRemaining() {

@@ -95,7 +95,7 @@
                 </form>
 
                 <input type="text" readonly value="Total 78.90 €(delivery included)" id="total" >
-                <p><?php echo $row['name']." ".$row['price']; ?> €</p>
+                <p><?php echo $row['name']." " ?><input type="text" id="currentItem" value=<?php echo $row['price']; ?> readonly > €</p>
                 
             </div>
 
