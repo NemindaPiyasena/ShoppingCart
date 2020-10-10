@@ -78,24 +78,23 @@
                 <hr \>
                 <form>
                     <div class="borders" id="option1">
-                        <input type="radio" name="time" value=<?php echo $row['price']+40; ?> checked="true">
-                        <label for="option1">Standard <?php echo $row['price']; ?> € </label>
+                        <input id="standard" type="radio" name="time" value=<?php echo $row['price']; ?> checked="true" onfocus="setTotal(id);" >
+                        <label for="standard">Standard <?php echo $row['price']; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
                     <div class="borders"  id="option2">
-                        <input type="radio" name="time" value=<?php echo $row['price']+20; ?> >
-                        <label for="option2">Delux <?php echo $row['price']+20; ?> € </label>
+                        <input id="delux" type="radio" name="time" value=<?php echo $row['price']+20; ?> onfocus="setTotal(id);" >
+                        <label for="delux">Delux <?php echo $row['price']+20; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
                     <div class="borders" id="option3">
-                        <input type="radio" id="option3" name="time" value=<?php echo $row['price']+40; ?> >
-                        <label for="option3">Premium <?php echo $row['price']+40; ?> € </label>
+                        <input id="premium" type="radio" id="option3" name="time" value=<?php echo $row['price']+40; ?> onfocus="setTotal(id);" >
+                        <label for="premium">Premium <?php echo $row['price']+40; ?> € </label>
                         <i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                     </div>
                 </form>
 
-                <p id="total">Total 78.90 €(delivery included)</p>
-                <p><?php echo $row['name']." ".$row['price']; ?> €</p>
+                <input type="text" readonly value="Total 78.90 € (delivery included)" id="total" >
                 
             </div>
 
@@ -124,9 +123,9 @@
                     <div class="formElements">
                         <label class="leftF">Delivery time</label>
                         <div>
-                            <input type="radio" id="working" name="time" value="working" checked="true">
+                            <input type="radio" id="working" name="time" value="0" checked="true" onfocus="setDelivery(id);">
                             <label for="working">Working Day - Free(9.00 a.m.-9.00 p.m.) </label><i class="fa fa-info-circle" style="font: size 16px;color:rgb(145, 68, 68);padding: 0%;"></i><br \>
-                            <input type="radio" id="holiday" name="time" value="holiday">
+                            <input type="radio" id="holiday" name="time" value="4" onfocus="setDelivery(id);">
                             <label for="holiday">Sunday and Public Holidays 4.00 € </label><i class="fa fa-info-circle" style="font-size:16px;color:rgb(145, 68, 68);padding: 0%;"></i>
                         </div>
                     </div>
@@ -162,8 +161,7 @@
         </article>
     </section>
 
-
+    <script src="thesmile.js?v<?php echo time();?> "></script>
 
 </body>
-<script src="thesmile.js"></script>
 </html>
