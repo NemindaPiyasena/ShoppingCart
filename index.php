@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="main.css?v = <?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section id="headerSec">
+    <!-- <section id="headerSec">
         <img src="images/logo-small.png" alt="euroflora logo">
 
         <nav>
@@ -58,7 +60,25 @@
                 </li>
             </ul>
         </nav>
-    </section>
+    </section> -->
+
+    <div class="nav-container">
+        <nav class="navbar">
+            <h1 id="navbar-logo">LUXCO</h1>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-links">Home</a></li>
+                <li><a href="#" class="nav-links">Services</a></li>
+                <li><a href="#" class="nav-links">About Us</a></li>
+                <li><a href="#" class="nav-links">Contact Us</a></li>
+                <li><a href="#" class="nav-links nav-links-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <article id="bodyForMain">
         <article id="firstChild">
@@ -130,5 +150,6 @@
 
         </article>
     </article>
+    <script src="app.js"></script>
 </body>
 </html>
