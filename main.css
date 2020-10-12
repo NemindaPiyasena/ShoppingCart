@@ -3,40 +3,9 @@ body, s {
     color: rgb(192, 92, 92);
 }
 
-#headerSec nav ul {
-    list-style: none;
-    padding: 0%;
-}
-
-#headerSec nav ul li {
-    display: inline;
-}
-
 a {
     text-decoration: none;
 }
-
-#headerSec nav ul a{
-    padding: 0% 1% 0% 1%;
-    color: rgb(192, 92, 92);
-}
-
-#headerSec nav {
-    width: 50%;
-}
-
-#headerSec {
-    display: flex;
-    justify-content: space-between;
-    background: linear-gradient(to right, #bf6e4e 1%,#bf6e4e 1%,#f0b7a1 29%,#f0b7a1 31%,#f0b7a1 47%,#f0b7a1 73%,#f0b7a1 92%);
-}
-
-#headerSec img{
-    padding-left: 2%; 
-}
-
-
-
 
 #bodyForMain {
     background-color: grey;
