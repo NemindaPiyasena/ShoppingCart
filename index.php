@@ -75,7 +75,7 @@
                 <li><a href="#" class="nav-links">Services</a></li>
                 <li><a href="#" class="nav-links">About Us</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="login.php" class="nav-links nav-links-btn" method="post">Sign Up</a></li>
+                <li><a href="test.php?v=<?php echo time(); ?>" class="nav-links nav-links-btn" method="post">Sign Up</a></li>
             </ul>
         </nav>
     </div>
