@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v = <?php echo time(); ?>">
 </head>
 <body>
     <!-- <section id="headerSec">
@@ -75,7 +75,7 @@
                 <li><a href="#" class="nav-links">Services</a></li>
                 <li><a href="#" class="nav-links">About Us</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Sign Up</a></li>
+                <li><a href="login.php" class="nav-links nav-links-btn" method="post">Sign Up</a></li>
             </ul>
         </nav>
     </div>
