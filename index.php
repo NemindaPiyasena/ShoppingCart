@@ -75,9 +75,43 @@
                 <li><a href="#" class="nav-links">Services</a></li>
                 <li><a href="#" class="nav-links">About Us</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="login.php?v=<?php echo time(); ?>" class="nav-links nav-links-btn" method="post">Sign Up</a></li>
+                <li><a href="#" class="nav-links nav-links-btn main-btn" method="post">Sign Up</a></li>
             </ul>
         </nav>
+    </div>
+
+    <!-- Modal -->
+    
+    <div class="modal" id="email-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-content-left">
+                <img id="modal-img" src="images/pic2.svg" alt="">
+            </div>
+            <div class="modal-content-right">
+                <form action="/" method="GET" class="modal-form" id="form">
+                <h1>Get started with us today! Create your account by filling out the information below.</h1>
+                <div class="form-validation">
+                    <input type="text" class="modal-input" id="name" name="name" placeholder="Enter your name">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="email" class="modal-input" id="email" name="email" placeholder="Enter your email">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="password" name="password" placeholder="Enter your password">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="password-confirm" name="password" placeholder="Confirm your password">
+                    <p>Error Message</p>
+                </div>
+                <input type="submit" class="modal-input-btn" value="Sign Up">
+                <span class="modal-input-login">Allready have an account? Login <a href="#">here</a></span>
+                </form>
+            </div>
+        </div>
     </div>
 
     <article id="bodyForMain">
