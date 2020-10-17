@@ -34,11 +34,10 @@ const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
 
 //Error detector
-errorBuffer = {'username': false, 'email': false, 'password': false, 'emailCheck': false };
+errorBuffer = {'username': false, 'email': false, 'password': false};
 
 //show error message
 function showError(input, message) {
-    //alert(input.name);
     errorBuffer[input.name] = true;
     const formValidation = input.parentElement;
     formValidation.className = 'form-validation error';
@@ -54,7 +53,7 @@ function showValid(input) {
     formValidation.className = 'form-validation valid'; 
 }
 
-//Check reuired fields
+//Check required fields
 function checkRequired(inputArr) {
     inputArr.forEach(function(input) {
         if(input.value.trim() === '') {
@@ -90,8 +89,6 @@ function getFieldName(input) {
 
 //Event Listners
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
     checkRequired([name, email, password, passwordConfirm]);
     checkLength(name, 3, 30);
     checkLength(password, 8, 25);
@@ -104,6 +101,7 @@ form.addEventListener('submit', (e) => {
             data: {
                 'email': email.value,
             },
+            async: false,
             dataType: 'json',
             encode: true,
         }).done(function (data) {
@@ -113,5 +111,8 @@ form.addEventListener('submit', (e) => {
                 showError(email, 'There is already an account created for this email');
             }
         });
+    }
+    if(errorBuffer['username'] || errorBuffer['password'] || errorBuffer['email']) {
+        e.preventDefault();
     }
 });
