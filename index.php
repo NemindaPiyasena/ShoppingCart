@@ -1,3 +1,40 @@
+<?php
+    if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_REQUEST["submitBtn"])) {
+        echo "FDfdffd";
+        include('database.php');
+        $username = $_REQUEST['username'];
+        $password = $_REQUEST['password'];
+        $email = $_REQUEST['email'];
+        echo $email;
+        echo $username;
+        echo $password;
+        $query = "SELECT * FROM users WHERE email = :email";
+        $statement = $connection->prepare($query);
+        $statement->bindParam(':email', $email);
+        $statement->execute();
+        if($statement->rowCount() == 0) {
+            $query = "INSERT INTO `users`(`username`, `password`, `email`)
+                                    VALUES (:username, :password, :email)";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':username', $username);
+            $statement->bindParam(':password', $password);
+            if($statement->execute()) {
+                session_start();
+                $_SESSION['logged'] = true;
+                $_SESSION['password'] = $password;
+                $_SESSION['email'] = $email;
+                header('location:index.php');
+            }
+        } else {
+            echo "<script type='text/javascript'>
+                const email = document.getElementById('email');
+                document.write(showError(email, 'There is already an account created from this email'));
+                </script>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +112,14 @@
                 <li><a href="#" class="nav-links">Services</a></li>
                 <li><a href="#" class="nav-links">About Us</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="#" class="nav-links nav-links-btn main-btn" method="post">Sign Up</a></li>
+                <?php
+                    session_start();
+                    if(isset($_SESSION['logged']) && $_SESSION['logged'] = true){
+                        echo "<a href='logout.php'>Neminda</a>";
+                    } else {
+                        echo "<li><a href='#' class='nav-links nav-links-btn main-btn' method='post'>Sign Up</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
     </div>
@@ -89,10 +133,10 @@
                 <img id="modal-img" src="images/pic2.svg" alt="">
             </div>
             <div class="modal-content-right">
-                <form action="/" method="GET" class="modal-form" id="form">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="modal-form" id="form">
                 <h1>Get started with us today! Create your account by filling out the information below.</h1>
                 <div class="form-validation">
-                    <input type="text" class="modal-input" id="name" name="name" placeholder="Enter your name">
+                    <input type="text" class="modal-input" id="name" name="username" placeholder="Enter your name">
                     <p>Error Message</p>
                 </div>
                 <div class="form-validation">
@@ -107,7 +151,7 @@
                     <input type="password" class="modal-input" id="password-confirm" name="password" placeholder="Confirm your password">
                     <p>Error Message</p>
                 </div>
-                <input type="submit" class="modal-input-btn" value="Sign Up">
+                <input type="submit" class="modal-input-btn" value="Sign Up" name="submitBtn">
                 <span class="modal-input-login">Allready have an account? Login <a href="#">here</a></span>
                 </form>
             </div>
