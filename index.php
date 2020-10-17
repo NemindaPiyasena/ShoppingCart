@@ -1,36 +1,21 @@
 <?php
     if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_REQUEST["submitBtn"])) {
-        echo "FDfdffd";
         include('database.php');
         $username = $_REQUEST['username'];
         $password = $_REQUEST['password'];
         $email = $_REQUEST['email'];
-        echo $email;
-        echo $username;
-        echo $password;
-        $query = "SELECT * FROM users WHERE email = :email";
+        $query = "INSERT INTO `users`(`username`, `password`, `email`)
+                                VALUES (:username, :password, :email)";
         $statement = $connection->prepare($query);
         $statement->bindParam(':email', $email);
-        $statement->execute();
-        if($statement->rowCount() == 0) {
-            $query = "INSERT INTO `users`(`username`, `password`, `email`)
-                                    VALUES (:username, :password, :email)";
-            $statement = $connection->prepare($query);
-            $statement->bindParam(':email', $email);
-            $statement->bindParam(':username', $username);
-            $statement->bindParam(':password', $password);
-            if($statement->execute()) {
-                session_start();
-                $_SESSION['logged'] = true;
-                $_SESSION['password'] = $password;
-                $_SESSION['email'] = $email;
-                header('location:index.php');
-            }
-        } else {
-            echo "<script type='text/javascript'>
-                const email = document.getElementById('email');
-                document.write(showError(email, 'There is already an account created from this email'));
-                </script>";
+        $statement->bindParam(':username', $username);
+        $statement->bindParam(':password', $password);
+        if($statement->execute()) {
+            session_start();
+            $_SESSION['logged'] = true;
+            $_SESSION['password'] = $password;
+            $_SESSION['email'] = $email;
+            header('location:index.php');
         }
     }
 ?>
@@ -45,6 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css?v = <?php echo time(); ?>">
 </head>
 <body>
@@ -114,7 +100,7 @@
                 <li><a href="#" class="nav-links">Contact Us</a></li>
                 <?php
                     session_start();
-                    if(isset($_SESSION['logged']) && $_SESSION['logged'] = true){
+                    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
                         echo "<a href='logout.php'>Neminda</a>";
                     } else {
                         echo "<li><a href='#' class='nav-links nav-links-btn main-btn' method='post'>Sign Up</a></li>";
@@ -125,7 +111,6 @@
     </div>
 
     <!-- Modal -->
-    
     <div class="modal" id="email-modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -228,6 +213,6 @@
 
         </article>
     </article>
-    <script src="app.js"></script>
+    <script src="app.js?v=<?php echo time();?>"></script>
 </body>
 </html>

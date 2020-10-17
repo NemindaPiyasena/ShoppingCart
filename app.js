@@ -33,8 +33,13 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
 
+//Error detector
+errorBuffer = {'username': false, 'email': false, 'password': false, 'emailCheck': false };
+
 //show error message
 function showError(input, message) {
+    //alert(input.name);
+    errorBuffer[input.name] = true;
     const formValidation = input.parentElement;
     formValidation.className = 'form-validation error';
 
@@ -44,6 +49,7 @@ function showError(input, message) {
 
 //Show valid message
 function showValid(input) {
+    errorBuffer[input.name] = false;
     const formValidation = input.parentElement;
     formValidation.className = 'form-validation valid'; 
 }
@@ -84,9 +90,28 @@ function getFieldName(input) {
 
 //Event Listners
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     checkRequired([name, email, password, passwordConfirm]);
     checkLength(name, 3, 30);
     checkLength(password, 8, 25);
     checkLength(passwordConfirm, 8, 25);
     passwordMatch(password, passwordConfirm);
+    if(!errorBuffer['username'] && !errorBuffer['password'] && !errorBuffer['email']) {
+        $.ajax({
+            method: 'get',
+            url: 'validation.php',
+            data: {
+                'email': email.value,
+            },
+            dataType: 'json',
+            encode: true,
+        }).done(function (data) {
+            if(data.status) {
+                showValid(email);
+            } else {
+                showError(email, 'There is already an account created for this email');
+            }
+        });
+    }
 });
