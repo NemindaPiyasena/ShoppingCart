@@ -244,7 +244,6 @@ button.createbtn i {
 .tab {
     padding: 20px;
     width: 100%;
-    text-align: center;
     display: none;
 }
 
@@ -343,7 +342,35 @@ button.createbtn i {
 
 }
 
+/*Neminda*/
 
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-left {
+    width: 50%;
+    padding: 1px;
+    text-align: center;
+}
+
+.cart-left img {
+    width: 200px;
+    height: 200px;
+}
+
+.cart-right {
+    width: 50%;
+    padding: 1px;
+    text-align: start;
+}
+
+.cart-right p{
+    
+}
 
 
 

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css?v = <?php echo time(); ?>">
 </head>
 <body>
@@ -112,7 +113,7 @@
                         echo '<li class="nav-container detector">';
                             echo '<div class="profile-links-container">';
                                 echo '<div class="nav-links profile-links-btn">';
-                                    echo '<img src="images/profilePic.jpg" alt="" id="profile-img">';
+                                    echo '<a href="profile.php" class="profile-link"><img src="images/profilePic.jpg" alt="" id="profile-img"></a>';
                                     echo '<a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>';
                                 echo '</div>';
                                 echo '<ul class="nav-dropdown-menu">';
@@ -203,7 +204,7 @@
                     echo "<div id='cart-show'>";
                         echo "<h2 class='initialHeader' id='item-title'>".$row['name']."</h2>";
                         if(isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
-                            echo "<button class='add-cart-btn'>Add to cart</button>";
+                            echo "<a class='add-cart-btn'>Add to cart</a>";
                         }
                     echo "</div>";
                 ?>
@@ -268,6 +269,7 @@
 
     <script src="thesmile.js?v<?php echo time();?> "></script>
     <script src="app.js?v<?php echo time();?>"></script>
+    <script src="cart.js?v<?php echo time();?>"></script>
 
 </body>
 </html>

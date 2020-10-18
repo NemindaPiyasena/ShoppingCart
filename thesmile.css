@@ -140,6 +140,7 @@ body {
 }
 
 .add-cart-btn:hover {
+    cursor: pointer;
     background-color: blue;
     color: var(--white);
     padding: 5px 15px;

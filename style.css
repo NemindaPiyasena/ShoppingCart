@@ -240,6 +240,12 @@
     cursor: pointer;
 }
 
+.profile-link {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
 .nav-dropdown-menu {
     display: none;
     transition: all 0.5s ease-in-out;

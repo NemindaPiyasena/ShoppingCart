@@ -104,7 +104,7 @@
                         echo '<li class="nav-container detector">';
                             echo '<div class="profile-links-container">';
                                 echo '<div class="nav-links profile-links-btn">';
-                                    echo '<img src="images/profilePic.jpg" alt="" id="profile-img">';
+                                echo '<a href="profile.php" class="profile-link"><img src="images/profilePic.jpg" alt="" id="profile-img"></a>';
                                     echo '<a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>';
                                 echo '</div>';
                                 echo '<ul class="nav-dropdown-menu">';

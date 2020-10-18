@@ -127,13 +127,17 @@ form.addEventListener('submit', (e) => {
 
 if(detector.classList.contains('nav-container')){
     const optionArrow = document.querySelector('.dropdown-arrow');
-    const profilelinkBtn = document.querySelector('.profile-links-btn');
+    const profileLinkBtn = document.querySelector('.profile-links-btn');
     const dropDownMenu = document.querySelector('.nav-dropdown-menu');
+    const profileLink = document.getElementById('profile-img');
     optionArrow.addEventListener('click', function () {
         optionArrow.classList.toggle('active');
-        profilelinkBtn.classList.toggle('active');
+        profileLinkBtn.classList.toggle('active');
         dropDownMenu.classList.toggle('active');
-    })
+    });
+    profileLink.addEventListener('click', function () {
+        ;
+    });
 }
 
 //Click events
