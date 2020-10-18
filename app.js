@@ -8,17 +8,22 @@ menu.addEventListener('click', function() {
 
 //Modal items
 const modal = document.getElementById('email-modal');
-const openBtn = document.querySelector('.main-btn');
-const closeBtn = document.querySelector('.close-btn');
+const detector = document.querySelector('.detector');
 
-//Click events
-openBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-});
+if(detector.classList.contains('main-btn')){
+    const openBtn = document.querySelector('.main-btn');
+    const closeBtn = document.querySelector('.close-btn');
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+    //Click events
+    openBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+}
 
 window.addEventListener('click', (e) => {
     if(e.target === modal) {
@@ -119,14 +124,17 @@ form.addEventListener('submit', (e) => {
 
 
 //profile links
-const optionArrow = document.querySelector('.dropdown-arrow');
-const profilelinkBtn = document.querySelector('.profile-links-btn');
-const dropDownMenu = document.querySelector('.nav-dropdown-menu');
-optionArrow.addEventListener('click', function () {
-    optionArrow.classList.toggle('active');
-    profilelinkBtn.classList.toggle('active');
-    dropDownMenu.classList.toggle('active');
-})
+
+if(detector.classList.contains('nav-container')){
+    const optionArrow = document.querySelector('.dropdown-arrow');
+    const profilelinkBtn = document.querySelector('.profile-links-btn');
+    const dropDownMenu = document.querySelector('.nav-dropdown-menu');
+    optionArrow.addEventListener('click', function () {
+        optionArrow.classList.toggle('active');
+        profilelinkBtn.classList.toggle('active');
+        dropDownMenu.classList.toggle('active');
+    })
+}
 
 //Click events
 //  window.addEventListener('click', function (e) {

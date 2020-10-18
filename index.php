@@ -94,16 +94,30 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-links">Home</a></li>
-                <li><a href="#" class="nav-links">Services</a></li>
-                <li><a href="#" class="nav-links">About Us</a></li>
-                <li><a href="#" class="nav-links">Contact Us</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Home</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Services</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">About Us</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Contact Us</a></li>
                 <?php
                     session_start();
                     if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
-                        echo "<a href='logout.php'>Neminda</a>";
+                        echo '<li class="nav-container detector">';
+                            echo '<div class="profile-links-container">';
+                                echo '<div class="nav-links profile-links-btn">';
+                                    echo '<img src="images/profilePic.jpg" alt="" id="profile-img">';
+                                    echo '<a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>';
+                                echo '</div>';
+                                echo '<ul class="nav-dropdown-menu">';
+                                    echo '<a href="logout.php"><li>Log Out</li></a>';
+                                    echo '<hr>';
+                                    echo '<a href="#"><li>Go to cart</li></a>';
+                                    echo '<hr>';
+                                    echo '<a href="#"><li>Notifications</li></a>';
+                                echo '</ul>';
+                            echo '</div>';
+                        echo '</li>';
                     } else {
-                        echo "<li><a href='#' class='nav-links nav-links-btn main-btn' method='post'>Sign Up</a></li>";
+                        echo "<li><a href='#' class='nav-links nav-links-btn main-btn detector' method='post'>Sign Up</a></li>";
                     }
                 ?>
             </ul>
