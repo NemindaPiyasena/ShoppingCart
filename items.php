@@ -1,9 +1,40 @@
+<?php
+    session_start();
+    if(isset($_REQUEST['productId'])) {
+        $_SESSION['productId'] = $_REQUEST['productId'];
+    }
+    include 'database.php';
+    $query = "SELECT * FROM products WHERE product_id = ".$_SESSION['productId'];
+    $statement = $connection->prepare($query);
+    $statement->execute();
+    $row = $statement->fetch();
+    if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_REQUEST["submitBtn"])) {
+        include('database.php');
+        $username = $_REQUEST['username'];
+        $password = $_REQUEST['password'];
+        $email = $_REQUEST['email'];
+        $query = "INSERT INTO `users`(`username`, `password`, `email`)
+                                VALUES (:username, :password, :email)";
+        $statement = $connection->prepare($query);
+        $statement->bindParam(':email', $email);
+        $statement->bindParam(':username', $username);
+        $statement->bindParam(':password', $password);
+        if($statement->execute()) {
+            session_start();
+            $_SESSION['logged'] = true;
+            $_SESSION['password'] = $password;
+            $_SESSION['email'] = $email;
+            header('location:items.php');
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The smile</title>
+    <title><?php echo $row['name']?></title>
     <link rel="stylesheet" href="main.css?v = <?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="thesmile.css?v = <?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,24 +103,70 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-links">Home</a></li>
-                <li><a href="#" class="nav-links">Services</a></li>
-                <li><a href="#" class="nav-links">About Us</a></li>
-                <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Sign Up</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Home</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Services</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">About Us</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Contact Us</a></li>
+                <?php
+                    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+                        echo '<li class="nav-container detector">';
+                            echo '<div class="profile-links-container">';
+                                echo '<div class="nav-links profile-links-btn">';
+                                    echo '<img src="images/profilePic.jpg" alt="" id="profile-img">';
+                                    echo '<a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>';
+                                echo '</div>';
+                                echo '<ul class="nav-dropdown-menu">';
+                                    echo '<a href="logout.php"><li>Log Out</li></a>';
+                                    echo '<hr>';
+                                    echo '<a href="#"><li>Go to cart</li></a>';
+                                    echo '<hr>';
+                                    echo '<a href="#"><li>Notifications</li></a>';
+                                echo '</ul>';
+                            echo '</div>';
+                        echo '</li>';
+                    } else {
+                        echo "<li><a href='#' class='nav-links nav-links-btn main-btn detector' method='post'>Sign Up</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
     </div>
 
+    <!-- Modal -->
+    <div class="modal" id="email-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-content-left">
+                <img id="modal-img" src="images/pic2.svg" alt="">
+            </div>
+            <div class="modal-content-right">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="modal-form" id="form">
+                <h1>Get started with us today! Create your account by filling out the information below.</h1>
+                <div class="form-validation">
+                    <input type="text" class="modal-input" id="name" name="username" placeholder="Enter your name">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="email" class="modal-input" id="email" name="email" placeholder="Enter your email">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="password" name="password" placeholder="Enter your password">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="password-confirm" name="password" placeholder="Confirm your password">
+                    <p>Error Message</p>
+                </div>
+                <input type="submit" class="modal-input-btn" value="Sign Up" name="submitBtn">
+                <span class="modal-input-login">Allready have an account? Login <a href="#">here</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <section>        
         <article id="mainBody">
-            <?php
-            include 'database.php';
-            $query = "SELECT * FROM products WHERE product_id = ".$_REQUEST['productId'];
-            $statement = $connection->prepare($query);
-            $statement->execute();
-            $row = $statement->fetch();
-            ?>
             <div id="left" class="common">
                 <?php
                     echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."' >";
@@ -122,7 +199,14 @@
 
 
             <div id="right" class="common">
-                <?php echo "<h2 class='initialHeader'>".$row['name']."</h2>" ?>
+                <?php
+                    echo "<div id='cart-show'>";
+                        echo "<h2 class='initialHeader' id='item-title'>".$row['name']."</h2>";
+                        if(isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+                            echo "<button class='add-cart-btn'>Add to cart</button>";
+                        }
+                    echo "</div>";
+                ?>
                 <p>
                     <?php
                         echo "<b>".$row['longdescription']."</b>"
@@ -183,7 +267,7 @@
     </section>
 
     <script src="thesmile.js?v<?php echo time();?> "></script>
-    <script src="app.js"></script>
+    <script src="app.js?v<?php echo time();?>"></script>
 
 </body>
 </html>
