@@ -46,11 +46,11 @@
 
     <!-- Modal -->
     
-    <div class="modal" id="email-modal">
+    <div class="modal" id="email-signup-modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <div class="modal-content-left">
-                <img id="modal-img" src="images/pic2.svg" alt="">
+                <img class="modal-img" src="images/pic2.svg" alt="">
             </div>
             <div class="modal-content-right">
                 <form action="/" method="GET" class="modal-form" id="form">
@@ -72,13 +72,37 @@
                     <p>Error Message</p>
                 </div>
                 <input type="submit" class="modal-input-btn" value="Sign Up">
-                <span class="modal-input-login">Allready have an account? Login <a href="#">here</a></span>
+                <span class="modal-input-login">Allready have an account? Login <a href="#" id="login-link-btn">here</a></span>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Login -->
+    <div class="login-modal" id="email-login-modal">
+        <div class="modal-content">
+            <span class="login-close-btn">&times;</span>
+            <div class="modal-content-left">
+                <img class="modal-img" src="images/pic2.svg" alt="">
+            </div>
+            <div class="modal-content-right">
+                <form action="/" method="post" class="modal-form" id="login-form">
+                <h1>Login now!. See what you have done with your account</h1>
+                <div class="form-validation">
+                    <input type="email" class="modal-input" id="login-email" name="loginEmail" placeholder="Enter your email">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="login-password" name="loginPassword" placeholder="Enter your password">
+                    <p>Error Message</p>
+                </div>
+                <input type="submit" class="modal-input-btn" value="Login" name="submitBtn">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="originalapp.js"></script>
     
 </body>
 </html>

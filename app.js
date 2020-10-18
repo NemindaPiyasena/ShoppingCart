@@ -7,12 +7,14 @@ menu.addEventListener('click', function() {
 })
 
 //Modal items
-const modal = document.getElementById('email-modal');
+const modal = document.getElementById('email-signup-modal');
+const loginModal = document.getElementById('email-login-modal');
 const detector = document.querySelector('.detector');
 
 if(detector.classList.contains('main-btn')){
     const openBtn = document.querySelector('.main-btn');
     const closeBtn = document.querySelector('.close-btn');
+    const loginCloseBtn = document.querySelector('.login-close-btn');
 
     //Click events
     openBtn.addEventListener('click', () => {
@@ -23,23 +25,32 @@ if(detector.classList.contains('main-btn')){
         modal.style.display = 'none';
     });
 
+    loginCloseBtn.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+    });
+
 }
 
 window.addEventListener('click', (e) => {
     if(e.target === modal) {
         modal.style.display = 'none';
+    } else if(e.target == loginModal) {
+        loginModal.style.display = 'none';
     }
 });
 
 //form validation
+const loginForm = document.getElementById('login-form');
 const form = document.getElementById('form');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConfirm = document.getElementById('password-confirm');
+const loginEmail = document.getElementById('login-email');
+const loginPassword = document.getElementById('login-password');
 
 //Error detector
-errorBuffer = {'username': false, 'email': false, 'password': false};
+errorBuffer = {'username': false, 'email': false, 'password': false, 'loginEmail': false, 'loginPassword': false};
 
 //show error message
 function showError(input, message) {
@@ -122,9 +133,33 @@ form.addEventListener('submit', (e) => {
     }
 });
 
+loginForm.addEventListener('click', (e) => {
+    $.ajax({
+        method: 'get',
+        url: 'loginValidation.php',
+        data: {
+            'loginEmail': loginEmail.value,
+            'loginPassword': loginPassword.value,
+        },
+        async: false,
+        dataType: 'json',
+        encode: true,
+    }).done(function (data) {
+        if(data.status) {
+            showValid(loginEmail);
+            showValid(loginPassword)
+        } else {
+            showError(loginEmail, 'email is wrong or');
+            showError(loginPassword, 'password deosn\'t match');
+        }
+    });
+    if(errorBuffer['loginEmail'] || errorBuffer['loginPassword']) {
+        e.preventDefault();
+    }
+});
+
 
 //profile links
-
 if(detector.classList.contains('nav-container')){
     const optionArrow = document.querySelector('.dropdown-arrow');
     const profileLinkBtn = document.querySelector('.profile-links-btn');
@@ -144,3 +179,9 @@ if(detector.classList.contains('nav-container')){
 //          dropDownMenu.classList.remove('active');
 //      }
 // })
+
+const loginLinkBtn = document.getElementById('login-link-btn');
+loginLinkBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+    loginModal.style.display = 'block';
+})
