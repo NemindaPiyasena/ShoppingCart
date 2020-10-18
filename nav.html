@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nav Bar</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,11 +19,26 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-links">Home</a></li>
-                <li><a href="#" class="nav-links">Services</a></li>
-                <li><a href="#" class="nav-links">About Us</a></li>
-                <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Sign Up</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Home</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Services</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">About Us</a></li>
+                <li class="nav-container"><a href="#" class="nav-links">Contact Us</a></li>
+                <!-- <li class="nav-container"><a href="#" class="nav-links nav-links-btn">Sign Up</a></li> -->
+                <li class="nav-container">
+                    <div class="profile-links-container">
+                        <div class="nav-links profile-links-btn">
+                            <img src="images/profilePic.jpg" alt="" id="profile-img">
+                            <a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                        </div>
+                        <ul class="nav-dropdown-menu">
+                            <li>Log Out</li>
+                            <hr>
+                            <li>Go to cart</li>
+                            <hr>
+                            <li>Notifications</li>
+                        </ul>
+                    </div>  
+                </li>
             </ul>
         </nav>
     </div>
@@ -40,7 +56,7 @@
                 <form action="/" method="GET" class="modal-form" id="form">
                 <h1>Get started with us today! Create your account by filling out the information below.</h1>
                 <div class="form-validation">
-                    <input type="text" class="modal-input" id="name" name="name" placeholder="Enter your name">
+                    <input type="text" class="modal-input" id="name" name="username" placeholder="Enter your name">
                     <p>Error Message</p>
                 </div>
                 <div class="form-validation">

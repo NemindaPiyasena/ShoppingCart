@@ -116,3 +116,23 @@ form.addEventListener('submit', (e) => {
         e.preventDefault();
     }
 });
+
+
+//profile links
+const optionArrow = document.querySelector('.dropdown-arrow');
+const profilelinkBtn = document.querySelector('.profile-links-btn');
+const dropDownMenu = document.querySelector('.nav-dropdown-menu');
+optionArrow.addEventListener('click', function () {
+    optionArrow.classList.toggle('active');
+    profilelinkBtn.classList.toggle('active');
+    dropDownMenu.classList.toggle('active');
+})
+
+//Click events
+//  window.addEventListener('click', function (e) {
+//      if(typeof e.target === 'undefined' || (!e.classList.contains('fa') && optionArrow.classList.contains('active'))){
+//          optionArrow.classList.remove('active');
+//          dropDownMenu.classList.remove('active');
+//          dropDownMenu.classList.remove('active');
+//      }
+// })
