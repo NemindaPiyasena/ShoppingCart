@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="style.css?v=<?php echo time();?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
 
@@ -215,27 +215,32 @@
                     <div class="profile-body">
                         <div class="profile-posts tab">
                             <?php
-                                for($i=0; $i<$rows; $i++) {
-                                    $row = $statement->fetch();
-                                    $productId = $row['product_id'];
-                                    $query = "SELECT * FROM `products` WHERE product_id = :product_id";
-                                    $productResult = $connection->prepare($query);
-                                    $productResult->bindParam(':product_id', $productId);
-                                    $productResult->execute();
-                                    $row = $productResult->fetch();
-                                    echo "<div class='profile'>";
-                                        echo "<div class='cart-left'>";
-                                            echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."'>";
+                                if($rows > 0) {
+                                    for($i=0; $i<$rows; $i++) {
+                                        $row = $statement->fetch();
+                                        $productId = $row['product_id'];
+                                        $query = "SELECT * FROM `products` WHERE product_id = :product_id";
+                                        $productResult = $connection->prepare($query);
+                                        $productResult->bindParam(':product_id', $productId);
+                                        $productResult->execute();
+                                        $row = $productResult->fetch();
+                                        echo "<div class='profile'>";
+                                            echo "<div class='cart-left'>";
+                                                echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."'>";
+                                            echo "</div>";
+                                            echo "<div class='cart-right'>";
+                                                echo "<h2>".$row['name']."</h2>";
+                                                echo "<p>".$row['description']."</p>";
+                                                echo "<p>".$row['longdescription']."</p>";
+                                                echo "<p>".$row['price']." € </p>";
+                                                echo "<a name='".$productId."' onclick='deleteItem(name);' "."class='delete-cart-btn'>Delete</a>";
+                                            echo "</div>";
                                         echo "</div>";
-                                        echo "<div class='cart-right'>";
-                                            echo "<h2>".$row['name']."</h2>";
-                                            echo "<p>".$row['description']."</p>";
-                                            echo "<p>".$row['longdescription']."</p>";
-                                            echo "<p>".$row['price']." € </p>";
-                                        echo "</div>";
-                                    echo "</div>";
-                                    echo "<hr>";
-                                } 
+                                        echo "<hr>";
+                                    }
+                                } else {
+                                    echo "<p style='text-align:center;'>There is no items in your cart. Browse through our site and look for somthing cool!. We are sure that you will find what you are exactly looking for.</p>";
+                                }
                             ?>                   
                         </div>
                         <div class="profile-reviews tab profile">

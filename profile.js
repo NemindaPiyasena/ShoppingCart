@@ -26,3 +26,23 @@ function addLength() {
     bio.innerHTML = bio.oldText;
     bio.innerHTML += '&nbsp;' + `<span onclick='bioText()' id='see-less-bio'> See Less </span>`;
 }
+
+function deleteItem(name) {
+    $.ajax({
+        method: 'post',
+        url: 'deleteCart.php',
+        data: {
+                'product_id': name,
+        },
+        async: false,
+        dataType: 'json',
+        encode: true,
+    }).done(function (data) {
+        if(data.status) {
+            alert('deleted');
+        } else {
+            alert('there was an error');
+        }
+        window.location.reload(false);
+    });
+}
