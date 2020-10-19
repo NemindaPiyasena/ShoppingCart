@@ -371,13 +371,20 @@ button.createbtn i {
     text-align: center;
 }
 
+.delete-cart-btn {
+    position: relative;
+    top: 25px;
+    background-color: var(--brightred);
+    padding: 6px 16px;
+    border-radius: 4px;
+}
 
-
-
-
-
-
-
-
-
-
+.delete-cart-btn:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: solid 1px var(--brightred);
+    transition: all 0.3s ease-out;
+}

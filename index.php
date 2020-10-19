@@ -39,57 +39,7 @@
     <link rel="stylesheet" href="style.css?v = <?php echo time(); ?>">
 </head>
 <body>
-    <!-- <section id="headerSec">
-        <img src="images/logo-small.png" alt="euroflora logo">
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-home" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html" class="navcontainer">
-                        <i class="fa fa-envelope" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        Contact us
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-th-large" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        The florist
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-camera" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        Gallery
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-cogs" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        How to order
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-phone" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        Order by phone
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html" class="navcontainer">
-                        <i class="fa fa-comment" aria-hidden="true" style="color: rgb(192, 92, 92);font-size: 20px;"></i>
-                        Chat
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </section> -->
-
+    
     <div class="nav-container">
         <nav class="navbar">
             <h1 id="navbar-logo">LUXCO</h1>
