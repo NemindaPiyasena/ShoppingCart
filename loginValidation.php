@@ -14,6 +14,8 @@
         $_SESSION['password'] = $row['password'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['mime'] = $row['mime'];
+        $_SESSION['item'] = $row['profilepic'];
         $data = array("status" => true);
     } else {
         $data = array("status" => false);

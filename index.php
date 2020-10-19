@@ -19,7 +19,21 @@
                 $_SESSION['logged'] = true;
                 $_SESSION['password'] = $password;
                 $_SESSION['email'] = $email;
-                header('location:index.php');
+                $query = "SELECT * FROM users WHERE email = :email AND password = :password";
+                $satatement = $connection->prepare($query);
+                $satatement->bindParam(':email', $email);
+                $satatement->bindParam(':password', $password);
+                $satatement->execute();
+                if($satatement->rowCount() == 1) {
+                    $row = $satatement->fetch();
+                    $_SESSION['logged'] = true;
+                    $_SESSION['password'] = $row['password'];
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['user_id'] = $row['user_id'];
+                    $_SESSION['mime'] = $row['mime'];
+                    $_SESSION['item'] = $row['item'];
+                    header('location:index.php');
+                }
             }
         }
     }
@@ -58,7 +72,11 @@
                         echo '<li class="nav-container detector">';
                             echo '<div class="profile-links-container">';
                                 echo '<div class="nav-links profile-links-btn">';
-                                echo '<a href="profile.php" class="profile-link"><img src="images/defaultProfilePic.jpg" alt="" id="profile-img"></a>';
+                                    if($_SESSION['mime'] == null) {
+                                        echo '<a href="profile.php" class="profile-link"><img src="images/defaultProfilePic.jpg" alt="" id="profile-img"></a>';
+                                    } else {
+                                        echo "<a href='profile.php' class='profile-link'><img src='data:".$_SESSION['mime'].";base64,".base64_encode($_SESSION['item'])."' alt='' id='profile-img'></a>";
+                                    }
                                     echo '<a href="#" class="dropdown-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></a>';
                                 echo '</div>';
                                 echo '<ul class="nav-dropdown-menu">';

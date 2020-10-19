@@ -348,10 +348,9 @@ button.createbtn i {
 
 .profile {
     display: flex;    
-    width: 100%;
+    width: 63vw;
     justify-content: center;
     align-items: center;
-    
 }
 
 .cart-left {
@@ -387,4 +386,45 @@ button.createbtn i {
     border-radius: 4px;
     border: solid 1px var(--brightred);
     transition: all 0.3s ease-out;
+}
+
+#upload-btn {
+    top: 25px;
+    background-color: var(--brightred);
+    padding: 6px 16px;
+    border-radius: 4px;
+}
+
+#upload-btn:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: solid 1px var(--brightred);
+    transition: all 0.3s ease-out;
+}
+
+#update-pic {
+    text-align: center;
+    width: 63vw;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#camera-btn {
+    font-size: 2.5rem;
+}
+
+#camera-btn:hover {
+    color: rgb(153, 146, 146);
 }

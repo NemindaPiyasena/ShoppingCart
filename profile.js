@@ -46,3 +46,27 @@ function deleteItem(name) {
         window.location.reload(false);
     });
 }
+const formup = document.getElementById('fileinfo');
+$(function(){
+    $('#upload-btn').on('click', function(){ 
+        var fd = new FormData(formup);
+        //fd.append("CustomField", "This is some extra data");
+        $.ajax({
+            url: 'fileUpload.php',  
+            type: 'POST',
+            data: fd,
+            contentType: false,
+            processData: false,
+            async: false,
+            dataType: 'json',
+            encode: true,
+        }).done(function (data) {
+            if(data.status) {
+                alert('added');
+            } else {
+                alert('there was an error');
+            }
+        });
+        window.location.reload(false);
+    });
+});
