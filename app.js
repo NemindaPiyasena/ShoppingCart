@@ -176,4 +176,3 @@ if(detector.classList.contains('nav-container')){
         dropDownMenu.classList.toggle('active');
     });
 }
-

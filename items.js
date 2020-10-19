@@ -27,4 +27,3 @@ function setRemaining() {
     textbox.value = remain;
     textbox.style.width = textbox.value.length * 7 + 'px';
 }
-
