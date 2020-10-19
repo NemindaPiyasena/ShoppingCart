@@ -347,10 +347,11 @@ button.createbtn i {
 /*Neminda*/
 
 .profile {
+    display: flex;    
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .cart-left {
@@ -366,13 +367,10 @@ button.createbtn i {
 
 .cart-right {
     width: 50%;
-    padding: 1px;
-    text-align: start;
+    padding: 10%;
+    text-align: center;
 }
 
-.cart-right p{
-    
-}
 
 
 

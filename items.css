@@ -1,0 +1,150 @@
+:root {
+    --darkgrey: #212329;
+    --brightred: #F9423D;
+    --white: #fff;
+    --lightred: #f9433dcc;
+    --lightblue: #337AF1;
+    --lightgrey: #b1b1b1;
+}
+
+body {
+    color: black;
+}
+
+#headerSec{
+    margin-bottom: 0.5%;
+}
+#mainBody {
+    display: flex;
+}
+.common{
+}
+#left {
+    padding: 2%;
+    width: 30%;
+}
+
+#left img {
+    width: 90%;
+}
+
+#right {
+    padding: 1%;
+    width: 70%;
+}
+
+#right p{
+    margin: 0%;
+    padding: 0%;
+}
+
+#right form {
+    padding-left: 3%;
+    padding-right: 10%;
+    margin: auto;
+}
+
+#left form div {
+    width: 100%;
+}
+
+
+.formElements {
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.leftF {
+    width: 30%;
+    padding-right: 2%;
+    text-align: right;
+}
+
+.hintsR {
+    color:  #777777;
+    font-size: smaller;
+}
+
+#remain {
+    padding: 0%;
+    border: 0px none;
+    width: 20px;
+}
+
+#submitBtn {
+    position: relative;
+    left: 50%;
+    margin-top: 2%;
+    width: fit-content;
+}
+
+#sButton {
+    border-radius: 7px;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+}
+
+.borders {
+    position: relative;
+    border: 1px ridge #777777;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 8px;
+}
+
+.borders:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border: 1px ridge #777777;
+    border-radius: 8px;
+}
+
+#total {
+    background-color: rgb(145, 68, 68);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 7px;
+    text-align: center;
+    width: 60%;
+    border: 0px none;
+}
+
+#currentItem {
+    border: 0px none;
+    width: 20px;
+}
+
+#cart-show {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#item-title {
+    width: 50%;
+}
+
+#add-cart-btn {
+    background-color: var(--brightred);
+    padding: 6px 16px;
+    border-radius: 4px;
+}
+
+#add-cart-btn:hover {
+    cursor: pointer;
+    background-color: blue;
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: solid 1px var(--brightred);
+    transition: all 0.3s ease-out;
+}

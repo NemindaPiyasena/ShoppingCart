@@ -213,7 +213,7 @@
                         </ul>
                     </div>
                     <div class="profile-body">
-                        <div class="profile-posts tab profile">
+                        <div class="profile-posts tab">
                             <?php
                                 for($i=0; $i<$rows; $i++) {
                                     $row = $statement->fetch();
@@ -228,8 +228,10 @@
                                             echo "<img src='data:".$row['mime'].";base64,".base64_encode($row['item'])."'>";
                                         echo "</div>";
                                         echo "<div class='cart-right'>";
-                                            echo "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum magnam sapiente asperiores, reprehenderit non dolorem quia ut voluptatibus molestias enim unde at tempora dolorum aperiam corrupti quasi. Culpa saepe ipsam, porro excepturi dolorum amet reprehenderit iure incidunt necessitatibus atque autem architecto inventore cumque molestias quis, deserunt perferendis nostrum molestiae numquam facilis dicta officia minima? Beatae nobis obcaecati corporis eius qui reiciendis quaerat numquam. Vel repellat soluta delectus, id sit ratione?</p>                                <p>name</p>";
-                                            echo "<p>Data</p>";
+                                            echo "<h2>".$row['name']."</h2>";
+                                            echo "<p>".$row['description']."</p>";
+                                            echo "<p>".$row['longdescription']."</p>";
+                                            echo "<p>".$row['price']." € </p>";
                                         echo "</div>";
                                     echo "</div>";
                                     echo "<hr>";
