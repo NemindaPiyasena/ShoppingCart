@@ -272,6 +272,7 @@
 }
 
 .nav-dropdown-menu.active {
+    z-index: 2000;
     display: inline;
     position: absolute;
     left: 1px;

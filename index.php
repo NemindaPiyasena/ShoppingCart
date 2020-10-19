@@ -1,21 +1,26 @@
 <?php
-    if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_REQUEST["submitBtn"])) {
-        include('database.php');
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
-        $email = $_REQUEST['email'];
-        $query = "INSERT INTO `users`(`username`, `password`, `email`)
-                                VALUES (:username, :password, :email)";
-        $statement = $connection->prepare($query);
-        $statement->bindParam(':email', $email);
-        $statement->bindParam(':username', $username);
-        $statement->bindParam(':password', $password);
-        if($statement->execute()) {
-            session_start();
-            $_SESSION['logged'] = true;
-            $_SESSION['password'] = $password;
-            $_SESSION['email'] = $email;
-            header('location:index.php');
+    session_start();
+    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+        ;
+    } else {
+        if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_REQUEST["submitBtn"])) {
+            include('database.php');
+            $username = $_REQUEST['username'];
+            $password = $_REQUEST['password'];
+            $email = $_REQUEST['email'];
+            $query = "INSERT INTO `users`(`username`, `password`, `email`)
+                                    VALUES (:username, :password, :email)";
+            $statement = $connection->prepare($query);
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':username', $username);
+            $statement->bindParam(':password', $password);
+            if($statement->execute()) {
+                session_start();
+                $_SESSION['logged'] = true;
+                $_SESSION['password'] = $password;
+                $_SESSION['email'] = $email;
+                header('location:index.php');
+            }
         }
     }
 ?>
@@ -99,7 +104,6 @@
                 <li class="nav-container"><a href="#" class="nav-links">About Us</a></li>
                 <li class="nav-container"><a href="#" class="nav-links">Contact Us</a></li>
                 <?php
-                    session_start();
                     if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
                         echo '<li class="nav-container detector">';
                             echo '<div class="profile-links-container">';
@@ -110,9 +114,9 @@
                                 echo '<ul class="nav-dropdown-menu">';
                                     echo '<a href="logout.php"><li>Log Out</li></a>';
                                     echo '<hr>';
-                                    echo '<a href="#"><li>Go to cart</li></a>';
+                                    echo '<a href="profile.php"><li>Go to cart</li></a>';
                                     echo '<hr>';
-                                    echo '<a href="#"><li>Notifications</li></a>';
+                                    echo '<a href="profile.php"><li>Notifications</li></a>';
                                 echo '</ul>';
                             echo '</div>';
                         echo '</li>';
@@ -125,11 +129,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal" id="email-modal">
+    <div class="modal" id="email-signup-modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <div class="modal-content-left">
-                <img id="modal-img" src="images/pic2.svg" alt="">
+                <img class="modal-img" src="images/pic2.svg" alt="">
             </div>
             <div class="modal-content-right">
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="modal-form" id="form">
@@ -151,7 +155,31 @@
                     <p>Error Message</p>
                 </div>
                 <input type="submit" class="modal-input-btn" value="Sign Up" name="submitBtn">
-                <span class="modal-input-login">Allready have an account? Login <a href="#">here</a></span>
+                <span class="modal-input-login">Allready have an account? Login <a href="#" id="login-link-btn">here</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login -->
+    <div class="login-modal" id="email-login-modal">
+        <div class="modal-content">
+            <span class="login-close-btn">&times;</span>
+            <div class="modal-content-left">
+                <img class="modal-img" src="images/pic2.svg" alt="">
+            </div>
+            <div class="modal-content-right">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="modal-form" id="login-form">
+                <h1>Login now!. See what you have done with your account</h1>
+                <div class="form-validation">
+                    <input type="email" class="modal-input" id="login-email" name="loginEmail" placeholder="Enter your email">
+                    <p>Error Message</p>
+                </div>
+                <div class="form-validation">
+                    <input type="password" class="modal-input" id="login-password" name="loginPassword" placeholder="Enter your password">
+                    <p>Error Message</p>
+                </div>
+                <input type="submit" class="modal-input-btn" value="Login" name="submitBtn">
                 </form>
             </div>
         </div>

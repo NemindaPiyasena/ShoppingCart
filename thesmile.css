@@ -133,13 +133,13 @@ body {
     width: 50%;
 }
 
-.add-cart-btn {
+#add-cart-btn {
     background-color: var(--brightred);
     padding: 6px 16px;
     border-radius: 4px;
 }
 
-.add-cart-btn:hover {
+#add-cart-btn:hover {
     cursor: pointer;
     background-color: blue;
     color: var(--white);

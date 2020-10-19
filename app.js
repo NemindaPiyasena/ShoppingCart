@@ -31,6 +31,12 @@ if(detector.classList.contains('main-btn')){
 
 }
 
+const loginLinkBtn = document.getElementById('login-link-btn');
+loginLinkBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+    loginModal.style.display = 'block';
+});
+
 window.addEventListener('click', (e) => {
     if(e.target === modal) {
         modal.style.display = 'none';
@@ -133,7 +139,7 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-loginForm.addEventListener('click', (e) => {
+loginForm.addEventListener('submit', (e) => {
     $.ajax({
         method: 'get',
         url: 'loginValidation.php',
@@ -171,17 +177,3 @@ if(detector.classList.contains('nav-container')){
     });
 }
 
-//Click events
-//  window.addEventListener('click', function (e) {
-//      if(typeof e.target === 'undefined' || (!e.classList.contains('fa') && optionArrow.classList.contains('active'))){
-//          optionArrow.classList.remove('active');
-//          dropDownMenu.classList.remove('active');
-//          dropDownMenu.classList.remove('active');
-//      }
-// })
-
-const loginLinkBtn = document.getElementById('login-link-btn');
-loginLinkBtn.addEventListener('click', function () {
-    modal.style.display = 'none';
-    loginModal.style.display = 'block';
-})
